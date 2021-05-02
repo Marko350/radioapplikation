@@ -1,0 +1,64 @@
+.container,
+.containerList {
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+img {
+  width: 100%;
+}
+@media only screen and (min-width: 768px) {
+  .container {
+    width: 50%;
+  }
+
+  .channelContainer {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .container img {
+    width: 80%;
+    margin: 0 auto;
+    margin-bottom: 1rem;
+  }
+
+  .container span {
+    font-weight: 500;
+  }
+
+  .containerList {
+    padding: 1rem;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .container {
+    width: 50%;
+    margin-bottom: 4rem;
+  }
+  .container img {
+    width: 50%;
+  }
+
+  .container span {
+    margin: auto 0;
+    font-size: 1.3rem;
+    padding: 1.3rem;
+  }
+
+  .channelContainer {
+    flex-direction: row;
+  }
+}
+
+@media only screen and (min-width: 1500px) {
+  .container {
+    width: 35%;
+  }
+
+  .container span {
+    font-size: 1.5rem;
+  }
+}

@@ -1,0 +1,47 @@
+.container {
+  width: 90%;
+  margin: 0 auto;
+}
+
+@media only screen and (min-width: 768px) {
+  .container {
+    width: 50%;
+    font-size: 1.3rem;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .programContainer {
+    margin-top: 10rem;
+    width: 100%;
+  }
+
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+    font-size: 1rem;
+    margin: 0 auto;
+  }
+
+  .container p {
+    font-size: 1.5rem;
+  }
+
+  .container img {
+    width: 100%;
+  }
+
+  .infoContainer {
+    padding: 1rem;
+    width: 50%;
+  }
+}
+
+@media only screen and (min-width: 1500px) {
+  .container {
+    width: 80%;
+    font-size: 1.5rem;
+  }
+}
