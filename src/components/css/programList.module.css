@@ -6,6 +6,18 @@
   font-weight: bold;
 }
 
+.container h1 {
+  font-size: 1.3rem;
+}
+
+.container p {
+  font-size: 1rem;
+}
+
+.desc {
+  border-top: 2px solid black;
+}
+
 @media only screen and (min-width: 768px) {
   .container {
     margin: 1rem 1rem 4rem 1rem;

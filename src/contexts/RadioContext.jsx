@@ -4,8 +4,16 @@ export const RadioContext = createContext();
 
 const RadioContextProvider = (props) => {
   const [allChannels, setAllChannels] = useState(null);
+  const [allPrograms, setAllPrograms] = useState(null);
   const [fewChannels, setFewChannels] = useState(null);
   const [categories, setCategories] = useState(null);
+
+  useEffect(() => {
+    getFewChannels();
+    getAllChannels();
+    getCategories();
+    getAllPrograms();
+  }, []);
 
   const getFewChannels = async () => {
     let channels = await fetch("/api/v1/channels");
@@ -14,7 +22,7 @@ const RadioContextProvider = (props) => {
   };
 
   const getAllChannels = async () => {
-    let channels = await fetch("/api/v1/channels/allchannels");
+    let channels = await fetch("/api/v1/channels/allChannels");
     channels = await channels.json();
     setAllChannels(channels);
   };
@@ -22,15 +30,19 @@ const RadioContextProvider = (props) => {
   const getOneChannel = async (id) => {
     let channel = await fetch(`/api/v1/channels/${id}`);
     channel = await channel.json();
-    console.log(channel);
     return channel;
   };
 
   const getProgramsChannel = async (id) => {
     let programs = await fetch(`/api/v1/programs/channel/${id}`);
     programs = await programs.json();
-    console.log(programs);
     return programs;
+  };
+
+  const getAllPrograms = async () => {
+    let programs = await fetch("/api/v1/programs");
+    programs = await programs.json();
+    setAllPrograms(programs);
   };
 
   const getProgramInfo = async (id) => {
@@ -57,14 +69,9 @@ const RadioContextProvider = (props) => {
     return program;
   };
 
-  useEffect(() => {
-    getFewChannels();
-    getAllChannels();
-    getCategories();
-  }, []);
-
   const values = {
     allChannels,
+    allPrograms,
     fewChannels,
     categories,
     getFewChannels,
@@ -75,6 +82,7 @@ const RadioContextProvider = (props) => {
     getProgramsChannel,
     getProgramSchedule,
     getProgramInfo,
+    getAllPrograms,
   };
 
   return (

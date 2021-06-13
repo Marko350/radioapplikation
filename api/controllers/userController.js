@@ -9,8 +9,6 @@ const whoami = (req, res) => {
 };
 
 const login = (req, res) => {
-  // console.log("This is req: ", req);
-
   let query = `SELECT * FROM users WHERE email = $email`;
   let params = { $email: req.body.email };
 
@@ -40,7 +38,6 @@ const logout = (req, res) => {
 
 const register = (req, res) => {
   let userToRegister = req.body;
-  // console.log(userToRegister);
   let query = `SELECT * FROM users WHERE email = $email`;
   let params = { $email: userToRegister.email };
   db.get(query, params, (err, result) => {

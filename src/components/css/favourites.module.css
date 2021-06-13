@@ -1,0 +1,44 @@
+.container button {
+  padding: 10px;
+  margin-top: 1rem;
+  border-radius: 10px;
+  background-color: rgb(33, 74, 207);
+  color: white;
+}
+
+.container img {
+  width: 100%;
+}
+
+.container {
+  width: 80%;
+  margin: 2rem auto;
+}
+
+.favourites h1 {
+  font-size: 1.5rem;
+  display: inline;
+}
+
+.favourites {
+  margin: 1rem auto;
+}
+
+@media only screen and (min-width: 768px) {
+  .container {
+    width: 60%;
+    max-width: 300px;
+  }
+
+  .favouritesContainer {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .favourites {
+    min-width: 300px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+}

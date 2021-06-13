@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { RadioContext } from "../contexts/RadioContext";
 import ProgramList from "../components/ProgramList";
+import FavouriteChannels from "../components/FavouriteChannels";
 import {
   container,
   channelContainer,
@@ -12,25 +13,26 @@ const ChannelPage = (props) => {
   const { getOneChannel } = useContext(RadioContext);
   const [channel, setChannel] = useState(null);
 
+  useEffect(() => {
+    getData(channelId, getOneChannel);
+  }, []);
+
   const getData = async (id, method) => {
     let channel = await method(id);
 
     setChannel(channel);
   };
 
-  useEffect(() => {
-    getData(channelId, getOneChannel);
-  }, []);
-
-  console.log(channel);
-
   return (
     <div>
       <div className={container}>
-        {channel ? (
-          <div className={channelContainer}>
-            <img src={channel.image} alt={channel.name} />
-            <span>{channel.tagline}</span>
+        {channel && channel ? (
+          <div>
+            <div className={channelContainer}>
+              <img src={channel.image} alt={channel.name} />
+              <span>{channel.tagline}</span>
+            </div>
+            <FavouriteChannels channelId={channelId} />
           </div>
         ) : (
           <h1>Loading...</h1>

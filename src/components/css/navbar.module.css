@@ -54,6 +54,11 @@
   padding: 1rem 0rem 1rem 1rem;
 }
 
+.users {
+  color: white;
+  text-decoration: none;
+}
+
 @media only screen and (min-width: 1200px) {
   .links,
   .register {
@@ -64,8 +69,6 @@
   .users {
     font-size: 1.2rem;
     margin-right: 2rem;
-    color: white;
-    text-decoration: none;
   }
 
   .links a {
@@ -83,27 +86,3 @@
     display: none;
   }
 }
-
-/* .container,
-.register,
-.links {
-  display: flex;
-}
-
-.container {
-  justify-content: space-between;
-  background-color: rgb(197, 194, 194);
-}
-
-.links h1 {
-  margin-left: 2rem;
-}
-
-.register h1 {
-  margin-right: 2rem;
-}
-
-.links h1:hover,
-.register h1:hover {
-  cursor: pointer;
-} */

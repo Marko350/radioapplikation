@@ -6,6 +6,7 @@ import {
   imageContainer,
   programContainer,
 } from "./css/program.module.css";
+import FavouritePrograms from "../components/FavouritePrograms";
 
 const ProgramPage = (props) => {
   const { programId } = props.match.params;
@@ -42,6 +43,7 @@ const ProgramPage = (props) => {
             <p>Sänds: {info.broadcastinfo}</p>
             <p>Mejla programmet på: {info.email}</p>
             <p>Ansvarig utgivare: {info.responsibleeditor}</p>
+            <FavouritePrograms programId={programId} />
           </div>
         </div>
       )}
