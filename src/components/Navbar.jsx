@@ -27,8 +27,6 @@ const Navbar = () => {
     loginCheck();
   }, []);
 
-  console.log(user);
-
   return (
     <nav className={navbar}>
       <div className={container}>
@@ -36,12 +34,14 @@ const Navbar = () => {
           <NavLink to="/">RadioTower</NavLink>
         </div>
         <div>
-          <FontAwesomeIcon
-            icon={faUser}
-            className={mobile}
-            onClick={handleClick}
-            style={{ cursor: "pointer" }}
-          />
+          {!user && (
+            <FontAwesomeIcon
+              icon={faUser}
+              className={mobile}
+              onClick={handleClick}
+              style={{ cursor: "pointer" }}
+            />
+          )}
           {popup && Popup ? <Popup close={handleClick} /> : <></>}
         </div>
         {user ? (

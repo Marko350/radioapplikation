@@ -1,7 +1,13 @@
 import { useContext, useState, useEffect } from "react";
 import { RadioContext } from "../contexts/RadioContext";
 import { useHistory } from "react-router-dom";
-import { container, programContainer } from "./css/programList.module.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faAngleDoubleRight } from "@fortawesome/free-solid-svg-icons";
+import {
+  container,
+  programContainer,
+  desc,
+} from "./css/programList.module.css";
 
 const ProgramList = (props) => {
   const { getProgramsChannel } = useContext(RadioContext);
@@ -17,7 +23,6 @@ const ProgramList = (props) => {
     getData(props.id);
   }, []);
 
-  console.log(programs);
   return (
     <div>
       {programs && programs.length > 0 ? (
@@ -26,14 +31,24 @@ const ProgramList = (props) => {
       <div className={programContainer}>
         {programs &&
           programs.map((program) => (
-            <div key={program.id} className={container}>
+            <div
+              key={program.id}
+              className={container}
+              style={{ cursor: "pointer" }}
+              onClick={() => history.push(`/program/${program.id}`)}
+            >
               <img src={program.socialimage} alt={program.name} />
-              <p
-                style={{ cursor: "pointer" }}
-                onClick={() => history.push(`/program/${program.id}`)}
-              >
-                {program.name}
-              </p>
+              <h1>{program.name}</h1>
+              <div className={desc}>
+                <p>{program.description}</p>
+                <span onClick={() => history.push(`/program/${program.id}`)}>
+                  Läs mer
+                  <FontAwesomeIcon
+                    icon={faAngleDoubleRight}
+                    style={{ paddingLeft: "10px" }}
+                  />
+                </span>
+              </div>
             </div>
           ))}
       </div>

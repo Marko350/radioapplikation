@@ -49,7 +49,7 @@ const Home = () => {
         </h3>
       </div>
       <div className={programCategories}>
-        <h1>Pogramkategorier:</h1>
+        <h1>Programkategorier:</h1>
         <div className={categoriContainer}>
           {categories &&
             categories.map((categori) => (

@@ -6,6 +6,14 @@ const convertToDateObject = require("../core/utilities");
 
 const getAllPrograms = async (req, res) => {
   let programs = await fetch(
+    `http://api.sr.se/api/v2/programs?${json}&${pagination}`
+  );
+  programs = await programs.json();
+  res.json(programs.programs);
+};
+
+const getAllProgramsChannel = async (req, res) => {
+  let programs = await fetch(
     `http://api.sr.se/api/v2/programs/index?channelid=${req.params.channelId}&${json}&${pagination}`
   );
   programs = await programs.json();
@@ -36,7 +44,8 @@ const getProgramSchedule = async (req, res) => {
 };
 
 module.exports = {
-  getAllPrograms,
+  getAllProgramsChannel,
   getOneProgram,
   getProgramSchedule,
+  getAllPrograms,
 };

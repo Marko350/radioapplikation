@@ -6,6 +6,7 @@
   width: 80%;
   text-align: center;
   margin: 1rem auto;
+  cursor: pointer;
 }
 
 .containerProgram img {
@@ -17,6 +18,11 @@
   grid-template-columns: 1fr;
   margin: 0 auto;
   width: 80%;
+}
+
+.desc {
+  border-top: 2px solid black;
+  padding-top: 10px;
 }
 
 @media only screen and (min-width: 768px) {

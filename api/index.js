@@ -3,6 +3,7 @@ const session = require("express-session");
 
 const port = 3001;
 
+const favouriteRoutes = require("./routes/favouriteRoutes");
 const channelRoutes = require("./routes/channelRoutes.js");
 const programRoutes = require("./routes/programRoutes.js");
 const episodeRoutes = require("./routes/episodeRoutes.js");
@@ -21,6 +22,7 @@ app.use(
   })
 );
 
+app.use("/api/v1/favourites", favouriteRoutes);
 app.use("/api/v1/channels", channelRoutes);
 app.use("/api/v1/programs", programRoutes);
 app.use("/api/v1/episodes", episodeRoutes);
